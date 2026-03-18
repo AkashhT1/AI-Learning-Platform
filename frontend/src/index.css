@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Baloo+2:wght@400;500;600;700;800&display=swap');
+
+:root {
+  /* ── Core backgrounds ─────────────────── */
+  --bg:        #0D0F1E;
+  --bg2:       #13162B;
+  --bg3:       #1C2040;
+  --card:      #181B33;
+  --card2:     #202347;
+
+  /* ── Borders ──────────────────────────── */
+  --border:    rgba(139,92,246,0.22);
+  --border2:   rgba(139,92,246,0.10);
+
+  /* ── Primary palette (new) ────────────── */
+  --purple:    #8B5CF6;
+  --purple2:   #A78BFA;
+  --coral:     #F97316;
+  --coral2:    #FB923C;
+  --cyan:      #06B6D4;
+  --cyan2:     #22D3EE;
+  --lime:      #84CC16;
+  --lime2:     #A3E635;
+  --pink:      #EC4899;
+  --pink2:     #F472B6;
+  --success:   #10B981;
+  --warning:   #F59E0B;
+  --danger:    #EF4444;
+
+  /* ── Old aliases (kept for compatibility) */
+  --violet:    #8B5CF6;
+  --violet-lt: #A78BFA;
+  --pink-lt:   #F472B6;
+  --cyan-lt:   #22D3EE;
+  --lime-lt:   #A3E635;
+  --orange:    #F97316;
+  --orange-lt: #FB923C;
+  --yellow:    #F59E0B;
+  --yellow-lt: #FCD34D;
+  --teal:      #10B981;
+  --teal-lt:   #34D399;
+  --red:       #EF4444;
+  --red-lt:    #F87171;
+
+  /* ── Text ─────────────────────────────── */
+  --text:      #F0F0FF;
+  --text2:     #A0A8CC;
+  --text3:     #545880;
+
+  /* ── Subject colours ──────────────────── */
+  --math:      #8B5CF6;
+  --sci:       #06B6D4;
+  --eng:       #F97316;
+  --social:    #84CC16;
+
+  /* ── Difficulty ───────────────────────── */
+  --easy-c:    #10B981;
+  --medium-c:  #F59E0B;
+  --hard-c:    #EF4444;
+
+  /* ── Typography ───────────────────────── */
+  --font:      'Nunito', sans-serif;
+  --font2:     'Baloo 2', cursive;
+  --r:         16px;
+  --r2:        12px;
+}
+
+/* ── Reset ─────────────────────────────── */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Background atmosphere ─────────────── */
+body::before {
+  content: '';
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 10% 10%,  rgba(139,92,246,0.10) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 90% 80%,  rgba(6,182,212,0.08)  0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 50% 50%,  rgba(249,115,22,0.05) 0%, transparent 60%);
+}
+
+/* Dot grid */
+body::after {
+  content: '';
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.045) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+#root { position: relative; z-index: 1; }
+
+/* ── Scrollbar ─────────────────────────── */
+::-webkit-scrollbar       { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--purple); border-radius: 2px; }
+
+/* ── Base elements ─────────────────────── */
+a { color: var(--purple2); text-decoration: none; }
+input, select, textarea, button { font-family: var(--font); }
+
+/* ── Animations ────────────────────────── */
+@keyframes fadeInUp  { from{opacity:0;transform:translateY(14px)} to{opacity:1;transform:translateY(0)} }
+@keyframes fadeUp    { from{opacity:0;transform:translateY(14px)} to{opacity:1;transform:translateY(0)} }
+@keyframes pulse     { 0%,100%{opacity:1} 50%{opacity:0.35} }
+@keyframes spin      { to{transform:rotate(360deg)} }
+@keyframes float     { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-7px)} }
+@keyframes bounce-in { 0%{transform:scale(0.7);opacity:0} 60%{transform:scale(1.08)} 100%{transform:scale(1);opacity:1} }
+@keyframes glow      { 0%,100%{box-shadow:0 0 0 0 rgba(139,92,246,0)} 50%{box-shadow:0 0 16px 4px rgba(139,92,246,0.38)} }
+@keyframes anim-float{ 0%,100%{transform:translateY(0)} 50%{transform:translateY(-7px)} }
+
+/* ── Helper classes ────────────────────── */
+.anim-up    { animation: fadeInUp 0.35s ease both; }
+.anim-float { animation: anim-float 3s ease-in-out infinite; }
+.animate-fade-in { animation: fadeInUp 0.35s ease both; }
+.animate-pulse   { animation: pulse 2s infinite; }

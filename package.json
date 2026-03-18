@@ -1,0 +1,13 @@
+{
+  "name": "ai-learning-platform",
+  "version": "1.0.0",
+  "description": "AI-Powered Personalized Learning Platform for Government Schools",
+  "scripts": {
+    "install:all": "npm install && cd frontend && npm install && cd ../backend && npm install",
+    "dev": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm start\"",
+    "start": "cd backend && npm start"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
